@@ -20,7 +20,7 @@ puts
 new_tree.pretty_print
 puts
 
-"Rebalance tree"
+p "Rebalance tree"
 new_tree.rebalance
 p "Balanced?   => #{new_tree.balanced?}"
 p "Depth       => #{new_tree.depth}"

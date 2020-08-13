@@ -58,6 +58,7 @@ The Tree class contains a selection of relevant methods including #insert, #dele
         │   ┌── 20
         └── 17
 
+"Rebalance tree"
 "Balanced?   => true"
 "Depth       => 5"
 "Level order => [80, 59, 111, 20, 70, 93, 125, 17, 25, 66, 74, 86, 96, 114, 145, 46, 78, 100, 197]"
