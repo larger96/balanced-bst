@@ -1,25 +1,6 @@
 # frozen_string_literal: true
 
-class Node
-  include Comparable
-
-  attr_accessor :data, :left, :right
-
-  def initialize(data)
-    @data = data
-    @left = nil
-    @right = nil
-  end
-end
-
-module Comparable
-  def find_min(root)
-    return root if root.left.nil?
-      
-    root = root.left
-    find_min(root)
-  end
-end
+require_relative 'node.rb'
 
 class Tree
   attr_accessor :array, :root
@@ -157,22 +138,11 @@ class Tree
     new_array = inorder
     self.root = build_tree(new_array)
   end
-end
 
-new_tree = Tree.new(Array.new(15) { rand(1..100) })
-pp new_tree
-p new_tree.balanced?
-p new_tree.level_order
-p new_tree.preorder
-p new_tree.postorder
-p new_tree.inorder
-new_tree.insert(101)
-new_tree.insert(156)
-new_tree.insert(175)
-p new_tree.balanced?
-pp new_tree.rebalance
-p new_tree.balanced?
-p new_tree.level_order
-p new_tree.preorder
-p new_tree.postorder
-p new_tree.inorder
+  # Created by Fensus from Odin discord - creates a visual display of the tree
+  def pretty_print(node = root, prefix = '', is_left = true)
+    pretty_print(node.right, "#{prefix}#{is_left ? "│   " : "    "}", false) if node.right
+    puts "#{prefix}#{is_left ? "└── " : "┌── "}#{node.data}"
+    pretty_print(node.left, "#{prefix}#{is_left ? "    " : "│   "}", true) if node.left
+  end
+end
